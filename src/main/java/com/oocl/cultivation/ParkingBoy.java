@@ -7,7 +7,8 @@ public class ParkingBoy {
         return ticket;
     }
 
-    public boolean fetchCar(Ticket ticket, ParkingLot parkingLot) {
-        return false;
+    public Car fetchCar(Ticket ticket, ParkingLot parkingLot) {
+        Car car = parkingLot.searchCar(ticket);
+        return car;
     }
 }

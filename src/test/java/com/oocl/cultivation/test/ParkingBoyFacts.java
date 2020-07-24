@@ -31,9 +31,9 @@ class ParkingBoyFacts {
         ParkingLot parkingLot = new ParkingLot();
 
         //when
-        boolean car = parkingBoy.fetchCar(ticket, parkingLot);
+        Car car = parkingBoy.fetchCar(ticket, parkingLot);
 
         //then
-        assertEquals(true, car);
+        assertEquals(car.getCarId(), ticket.getTicketId());
     }
 }
