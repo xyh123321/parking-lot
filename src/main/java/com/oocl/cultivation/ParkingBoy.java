@@ -17,6 +17,9 @@ public class ParkingBoy {
 
     public List<Ticket> park(List<Car> cars) {
         List<Ticket> tickets = new LinkedList<>();
+        for (Car car: cars) {
+            tickets.add(new Ticket(car.getCarId()));
+        }
         return tickets;
     }
 }
