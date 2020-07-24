@@ -8,16 +8,16 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ParkingBoyFacts {
     @Test
-    void should_return_carid_when_parking_lot_given_a_car() {
+    void should_return_ticket_when_park_given_a_car() {
         //given
-        Car car = new Car("jayden");
+        Car car = new Car("jaydenCar");
         ParkingBoy parkingBoy = new ParkingBoy();
 
         //when
-        String res = parkingBoy.park(car);
+        String ticket = parkingBoy.park(car);
 
         //then
-        assertEquals(car.getCarId(), res);
+        assertEquals(car.getCarId(), ticket);
     }
 
 }
