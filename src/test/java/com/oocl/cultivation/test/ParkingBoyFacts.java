@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ParkingBoyFacts {
     @Test
-    void should_return_true_when_parking_lot_given_a_car() {
+    void should_return_carid_when_parking_lot_given_a_car() {
         //given
         Car car = new Car("jayden");
         ParkingBoy parkingBoy = new ParkingBoy();
@@ -19,4 +19,5 @@ class ParkingBoyFacts {
         //then
         assertEquals(car.getCarId(), res);
     }
+
 }
