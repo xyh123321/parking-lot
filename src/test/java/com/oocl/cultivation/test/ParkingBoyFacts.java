@@ -29,12 +29,14 @@ class ParkingBoyFacts {
     @Test
     void should_return_correct_car_when_fetch_car_given_ticket_parkingboy_parkinglot() {
         //given
-        Ticket ticket = new Ticket("jaydenCar");
-        ParkingBoy parkingBoy = new ParkingBoy();
+        Car mockCar = new Car("jaydenCar");
         ParkingLot parkingLot = new ParkingLot();
+        parkingLot.addCar(mockCar);
+        Ticket ticket = new Ticket("jaydenCar");
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
 
         //when
-        Car car = parkingBoy.fetchCar(ticket, parkingLot);
+        Car car = parkingBoy.fetchCar(ticket);
 
         //then
         assertEquals(car.getCarId(), ticket.getTicketId());
@@ -56,4 +58,6 @@ class ParkingBoyFacts {
         //then
         assertEquals(tickets.size(),2);
     }
+
+
 }

@@ -4,13 +4,23 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class ParkingBoy {
+    private ParkingLot parkingLot;
+
+    public ParkingBoy() {
+        this.parkingLot = new ParkingLot();
+    }
+
+    public ParkingBoy(ParkingLot parkingLot) {
+        this.parkingLot = parkingLot;
+    }
 
     public Ticket park(Car car){
         Ticket ticket = new Ticket(car.getCarId());
         return ticket;
+
     }
 
-    public Car fetchCar(Ticket ticket, ParkingLot parkingLot) {
+    public Car fetchCar(Ticket ticket) {
         Car car = parkingLot.searchCar(ticket);
         return car;
     }
