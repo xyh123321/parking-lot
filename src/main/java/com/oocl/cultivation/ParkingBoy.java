@@ -6,4 +6,8 @@ public class ParkingBoy {
         Ticket ticket = new Ticket(car.getCarId());
         return ticket;
     }
+
+    public boolean fetchCar(Ticket ticket, ParkingLot parkingLot) {
+        return false;
+    }
 }
