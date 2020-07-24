@@ -6,6 +6,9 @@ import com.oocl.cultivation.ParkingLot;
 import com.oocl.cultivation.Ticket;
 import org.junit.jupiter.api.Test;
 
+import java.util.LinkedList;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ParkingBoyFacts {
@@ -35,5 +38,22 @@ class ParkingBoyFacts {
 
         //then
         assertEquals(car.getCarId(), ticket.getTicketId());
+    }
+
+    @Test
+    void should_return_2_tickets_when_park_2_cars_given_pakingboy_and_2cars() {
+        //given
+        Car jaydenCar = new Car("jaydenCar");
+        Car susanCar = new Car("susanCar");
+        List<Car> cars = new LinkedList<>();
+        cars.add(jaydenCar);
+        cars.add(susanCar);
+        ParkingBoy parkingBoy = new ParkingBoy();
+
+        //when
+        List<Ticket> tickets = parkingBoy.park(cars);
+
+        //then
+        assertEquals(tickets.size(),2);
     }
 }

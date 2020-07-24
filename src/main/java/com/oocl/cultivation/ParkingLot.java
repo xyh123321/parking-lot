@@ -9,7 +9,6 @@ public class ParkingLot {
 
     public ParkingLot() {
         this.cars = new LinkedList<>();
-        this.cars.add(new Car("jaydenCar"));
         this.parkingSpace = 10;
     }
 
@@ -20,5 +19,10 @@ public class ParkingLot {
             }
         }
         return null;
+    }
+
+    public boolean addCar(Car car) {
+        this.cars.add(car);
+        return true;
     }
 }

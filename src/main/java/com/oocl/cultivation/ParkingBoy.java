@@ -1,5 +1,8 @@
 package com.oocl.cultivation;
 
+import java.util.LinkedList;
+import java.util.List;
+
 public class ParkingBoy {
 
     public Ticket park(Car car){
@@ -10,5 +13,10 @@ public class ParkingBoy {
     public Car fetchCar(Ticket ticket, ParkingLot parkingLot) {
         Car car = parkingLot.searchCar(ticket);
         return car;
+    }
+
+    public List<Ticket> park(List<Car> cars) {
+        List<Ticket> tickets = new LinkedList<>();
+        return tickets;
     }
 }
