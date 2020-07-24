@@ -2,7 +2,8 @@ package com.oocl.cultivation;
 
 public class ParkingBoy {
 
-    public String park(Car car){
-        return "jaydenCar";
+    public Ticket park(Car car){
+        Ticket ticket = new Ticket(car.getCarId());
+        return ticket;
     }
 }
