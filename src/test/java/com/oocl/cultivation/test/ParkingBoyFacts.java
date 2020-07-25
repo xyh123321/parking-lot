@@ -256,4 +256,19 @@ class ParkingBoyFacts {
         //then
         assertEquals("lot2:jaydenCar", ticket);
     }
+
+    @Test
+    void should_return_unrecognized_tips_when_super_smart_fetch_car_given_wrong_ticket_super_smart_parkingboy() {
+        //given
+        int[] lotSpace = {10, 5, 12};
+        SuperSmartParkingBoy superSmartParkingBoy = new SuperSmartParkingBoy(3,lotSpace);
+
+        Ticket wrongTicket = new Ticket("used:jaydencar");
+
+        //when
+        String tips = superSmartParkingBoy.fetchCar(wrongTicket);
+
+        //then
+        assertEquals("Unrecognized parking ticket.", tips);
+    }
 }
