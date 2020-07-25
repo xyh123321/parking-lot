@@ -196,4 +196,18 @@ class ParkingBoyFacts {
         //then
         assertEquals("lot2:jaydenCar", ticket);
     }
+
+    @Test
+    void should_return_lot2_ticket_when_super_smart_parking_given_car_smart_parkingboy_and_3lots_with_diffentspace() {
+        //given
+        Car car = new Car("jaydenCar");
+        int[] lotSpace = {10, 20, 5};
+        SuperSmartParkingBoy superSmartParkingBoy = new SuperSmartParkingBoy(3,lotSpace);
+
+        //when
+        String ticket = superSmartParkingBoy.park(car);
+
+        //then
+        assertEquals("lot2:jaydenCar", ticket);
+    }
 }
