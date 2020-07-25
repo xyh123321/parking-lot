@@ -198,6 +198,20 @@ class ParkingBoyFacts {
     }
 
     @Test
+    void should_return_unrecognized_tips_when_smart_fetch_car_given_wrong_ticket_parkingboy() {
+        //given
+        SmartParkingBoy smartParkingBoy = new SmartParkingBoy(2);
+
+        Ticket wrongTicket = new Ticket("used:jaydencar");
+
+        //when
+        String tips = smartParkingBoy.fetchCar(wrongTicket);
+
+        //then
+        assertEquals("Unrecognized parking ticket.", tips);
+    }
+
+    @Test
     void should_return_lot2_ticket_when_super_smart_parking_given_car_smart_parkingboy_and_3lots_with_diffentspace() {
         //given
         Car car = new Car("jaydenCar");
