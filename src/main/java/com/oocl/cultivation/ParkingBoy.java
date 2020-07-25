@@ -4,8 +4,8 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class ParkingBoy {
-    private ParkingLot parkingLot;
-    private List<ParkingLot> parkingLotList;
+    protected ParkingLot parkingLot;
+    protected List<ParkingLot> parkingLotList;
 
     public ParkingBoy() {
         this.parkingLot = new ParkingLot();
@@ -37,7 +37,7 @@ public class ParkingBoy {
         return "";
     }
 
-    private String searchPark(Car car) {
+    protected String searchPark(Car car) {
         for (int i = 0; i < this.parkingLotList.size(); i++) {
             if(this.parkingLotList.get(i).addCar(car)){
                 return this.parkingLotList.get(i).getLotName()+":"+car.getCarId();

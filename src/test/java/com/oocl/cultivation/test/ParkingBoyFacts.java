@@ -1,9 +1,6 @@
 package com.oocl.cultivation.test;
 
-import com.oocl.cultivation.Car;
-import com.oocl.cultivation.ParkingBoy;
-import com.oocl.cultivation.ParkingLot;
-import com.oocl.cultivation.Ticket;
+import com.oocl.cultivation.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -183,5 +180,20 @@ class ParkingBoyFacts {
 
         //then
         assertEquals("Not enough position.", ticket);
+    }
+
+    @Test
+    void should_return_lot2_ticket_when_smart_parking_given_car_smart_parkingboy_and_2lots() {
+        //given
+        Car car = new Car("jaydenCar");
+
+        SmartParkingBoy smartParkingBoy = new SmartParkingBoy(2);
+        smartParkingBoy.park(new Car("car"));
+
+        //when
+        String ticket = smartParkingBoy.park(car);
+
+        //then
+        assertEquals("lot2:jaydenCar", ticket);
     }
 }
