@@ -38,7 +38,7 @@ public class ParkingBoy {
     }
 
     private String searchPark(Car car) {
-        for (int i = 0; i < this.parkingLotList.size()+1; i++) {
+        for (int i = 0; i < this.parkingLotList.size(); i++) {
             if(this.parkingLotList.get(i).addCar(car)){
                 return this.parkingLotList.get(i).getLotName()+":"+car.getCarId();
             }

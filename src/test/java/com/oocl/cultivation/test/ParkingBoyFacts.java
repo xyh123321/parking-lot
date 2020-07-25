@@ -168,4 +168,20 @@ class ParkingBoyFacts {
         //then
         assertEquals("lot2:jaydenCar", ticket);
     }
+
+    @Test
+    void should_return_no_positon_when_park_given_car_pakingboy_2_lots_all_noposition() {
+        //given
+        Car car = new Car("jaydenCar");
+        ParkingBoy parkingBoy = new ParkingBoy(2);
+        for (int i = 0; i < 20; i++) {
+            parkingBoy.park(new Car(i+"car"));
+        }
+
+        //when
+        String ticket = parkingBoy.park(car);
+
+        //then
+        assertEquals("Not enough position.", ticket);
+    }
 }
