@@ -75,4 +75,12 @@ public class ParkingBoy {
         }
         return "";
     }
+
+    public List<ParkingLot> getParkingLotList() {
+        return parkingLotList;
+    }
+
+    public void setParkingLotList(List<ParkingLot> parkingLotList) {
+        this.parkingLotList = parkingLotList;
+    }
 }

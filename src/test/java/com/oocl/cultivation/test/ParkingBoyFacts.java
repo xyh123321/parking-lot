@@ -224,6 +224,25 @@ class ParkingBoyFacts {
     }
 
     @Test
+    void should_return_no_position_tips_when_smart_park_given_car_smartparkingboy_and_no_position_parkinglot() {
+        //given
+        Car car = new Car("jaydenCar");
+
+        SmartParkingBoy smartParkingBoy = new SmartParkingBoy(2);
+
+        List<ParkingLot> parkingLotList = smartParkingBoy.getParkingLotList();
+        for (ParkingLot p: parkingLotList) {
+            p.setParkingSpace(0);
+        }
+
+        //when
+        String ticketId = smartParkingBoy.park(car);
+
+        //then
+        assertEquals("Not enough position.",ticketId);
+    }
+
+    @Test
     void should_return_lot2_ticket_when_super_smart_parking_given_car_smart_parkingboy_and_3lots_with_diffentspace() {
         //given
         Car car = new Car("jaydenCar");

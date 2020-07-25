@@ -24,4 +24,5 @@ public class SmartParkingBoy extends ParkingBoy{
         }
         return "Not enough position.";
     }
+
 }
