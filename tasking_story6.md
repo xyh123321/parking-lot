@@ -15,6 +15,14 @@
 
 ---
 
+**2-1 Given:**  parking boy(not in list), parking manager,car
+
+**When:** manager specify  boy to park car
+
+**Then:**  false
+
+---
+
 **3 Given:**  parking boy, parking manager,car
 
 **When:** manager specify  boy to fetch car

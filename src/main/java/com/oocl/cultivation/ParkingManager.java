@@ -22,8 +22,7 @@ public class ParkingManager {
         return managementList;
     }
 
-    public String specifyPark(Object obj, Car car) {
-
-        return "";
+    public String specifyPark(ParkingBoy parkingBoy, Car car) {
+        return parkingBoy.park(car);
     }
 }
