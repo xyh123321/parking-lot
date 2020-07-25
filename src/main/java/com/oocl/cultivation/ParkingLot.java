@@ -37,7 +37,7 @@ public class ParkingLot {
 
     public boolean addCar(Car car) {
         if(this.parkingSpace !=0){
-            this.parkingSpace--;
+            this.setParkingSpace(this.parkingSpace-1);
             this.cars.add(car);
             return true;
         }
@@ -50,5 +50,9 @@ public class ParkingLot {
 
     public int getParkingSpace() {
         return parkingSpace;
+    }
+
+    public void setParkingSpace(int parkingSpace) {
+        this.parkingSpace = parkingSpace;
     }
 }

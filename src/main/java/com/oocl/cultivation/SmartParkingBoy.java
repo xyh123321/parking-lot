@@ -10,15 +10,18 @@ public class SmartParkingBoy extends ParkingBoy{
     @Override
     protected String searchPark(Car car) {
         int space = 0;
-        String res = "Not enough position.";
+        int lotNum = -1;
         for (int i = 0; i < this.parkingLotList.size(); i++) {
             if(this.parkingLotList.get(i).getParkingSpace()>space){
                 space = this.parkingLotList.get(i).getParkingSpace();
-                if(this.parkingLotList.get(i).addCar(car)){
-                    res =  this.parkingLotList.get(i).getLotName()+":"+car.getCarId();
-                }
+                lotNum = i;
             }
         }
-        return res;
+        if(lotNum !=-1){
+            if(this.parkingLotList.get(lotNum).addCar(car)){
+                return  this.parkingLotList.get(lotNum).getLotName()+":"+car.getCarId();
+            }
+        }
+        return "Not enough position.";
     }
 }
