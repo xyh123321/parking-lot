@@ -99,4 +99,32 @@ class ParkingBoyFacts {
         assertNull(car,"the ticket is wrong!");
     }
 
+    @Test
+    void should_return_no_car_when_fetch_car_given_used_ticket_parkingboy() {
+        //given
+        ParkingBoy parkingBoy = new ParkingBoy();
+
+        Ticket usedTicket = new Ticket("used:jaydenCae");
+
+        //when
+        Car car = parkingBoy.fetchCar(usedTicket);
+
+        //then
+        assertNull(car,"the ticket is used!");
+    }
+
+    @Test
+    void should_return_no_ticket_when_park_given_car_parkingboy_parkinglot() {
+        //given
+        Car car = new Car("jaydenCar");
+        ParkingLot parkingLot = new ParkingLot();
+
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
+
+        //when
+        Ticket ticket = parkingBoy.park(car);
+
+        //then
+        assertNull(ticket);
+    }
 }
