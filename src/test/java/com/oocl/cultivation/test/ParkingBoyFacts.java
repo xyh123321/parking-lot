@@ -32,6 +32,7 @@ class ParkingBoyFacts {
         Car mockCar = new Car("jaydenCar");
         ParkingLot parkingLot = new ParkingLot();
         parkingLot.addCar(mockCar);
+
         Ticket ticket = new Ticket("jaydenCar");
         ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
 
@@ -50,6 +51,7 @@ class ParkingBoyFacts {
         List<Car> cars = new LinkedList<>();
         cars.add(jaydenCar);
         cars.add(susanCar);
+
         ParkingBoy parkingBoy = new ParkingBoy();
 
         //when
@@ -58,6 +60,29 @@ class ParkingBoyFacts {
         //then
         assertEquals(tickets.size(),2);
     }
+
+    @Test
+    void should_return_correct_2cars_when_fetch_car_given_2tickets_parkingboy_parkinglot() {
+        //given
+        ParkingLot parkingLot = new ParkingLot();
+        parkingLot.addCar(new Car("jaydenCar"));
+        parkingLot.addCar(new Car("susanCar"));
+
+        Ticket jaydenTicket = new Ticket("jaydenCar");
+        Ticket susanTicket = new Ticket("susanCar");
+
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
+
+        //when
+        Car jdCar = parkingBoy.fetchCar(jaydenTicket);
+        Car suCar = parkingBoy.fetchCar(susanTicket);
+
+        //then
+
+        assertEquals(jaydenTicket.getTicketId()+susanTicket.getTicketId(), jdCar.getCarId()+suCar.getCarId());
+
+    }
+
 
 
 }
