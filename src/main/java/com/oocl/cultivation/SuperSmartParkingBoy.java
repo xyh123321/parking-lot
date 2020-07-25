@@ -11,7 +11,26 @@ public class SuperSmartParkingBoy extends ParkingBoy{
         for (int num = 1; num < lotNumber+1; num++) {
             ParkingLot parkingLot = new ParkingLot("lot"+num);
             parkingLot.setParkingSpace(lotSpace[num-1]);
+            parkingLot.setOriginSpace(lotSpace[num-1]);
             this.parkingLotList.add(parkingLot);
         }
+    }
+
+    @Override
+    protected String searchPark(Car car) {
+        int space = 0;
+        int lotNum = -1;
+        for (int i = 0; i < this.parkingLotList.size(); i++) {
+            if(this.parkingLotList.get(i).getParkingSpace()/this.parkingLotList.get(i).getOriginSpace()>space){
+                space = this.parkingLotList.get(i).getParkingSpace()/this.parkingLotList.get(i).getOriginSpace();
+                lotNum = i;
+            }
+        }
+        if(lotNum !=-1){
+            if(this.parkingLotList.get(lotNum).addCar(car)){
+                return  this.parkingLotList.get(lotNum).getLotName()+":"+car.getCarId();
+            }
+        }
+        return "Not enough position.";
     }
 }

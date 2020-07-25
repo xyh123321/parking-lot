@@ -6,6 +6,7 @@ import java.util.List;
 public class ParkingLot {
     private String lotName;
     private int parkingSpace;
+    private int originSpace;
     private List<Car> cars;
 
     public ParkingLot() {
@@ -54,5 +55,13 @@ public class ParkingLot {
 
     public void setParkingSpace(int parkingSpace) {
         this.parkingSpace = parkingSpace;
+    }
+
+    public void setOriginSpace(int originSpace) {
+        this.originSpace = originSpace;
+    }
+
+    public int getOriginSpace() {
+        return originSpace;
     }
 }
