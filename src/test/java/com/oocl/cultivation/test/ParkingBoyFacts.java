@@ -284,4 +284,19 @@ class ParkingBoyFacts {
         //then
         assertEquals("Please provide your parking ticket.", tips);
     }
+
+    @Test
+    void should_return_no_position_tips_when_super_smart_park_given_car_super_smart_parkingboy_and_no_position_parkinglot() {
+        //given
+        Car car = new Car("jaydenCar");
+
+        int[] lotSpace = {0, 0,0};
+        SuperSmartParkingBoy superSmartParkingBoy = new SuperSmartParkingBoy(3,lotSpace);
+
+        //when
+        String ticketId = superSmartParkingBoy.park(car);
+
+        //then
+        assertEquals("Not enough position.",ticketId);
+    }
 }
