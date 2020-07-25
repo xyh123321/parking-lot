@@ -22,10 +22,10 @@ class ParkingBoyFacts {
         ParkingBoy parkingBoy = new ParkingBoy();
 
         //when
-        Ticket ticket = parkingBoy.park(car);
+        String ticketId = parkingBoy.park(car);
 
         //then
-        assertEquals(car.getCarId(), ticket.getTicketId());
+        assertEquals(car.getCarId(), ticketId);
     }
 
     @Test
@@ -120,10 +120,10 @@ class ParkingBoyFacts {
         ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
 
         //when
-        Ticket ticket = parkingBoy.park(car);
+        String ticketId = parkingBoy.park(car);
 
         //then
-        assertNull(ticket);
+        assertEquals("",ticketId);
     }
 
     @Test
@@ -134,10 +134,10 @@ class ParkingBoyFacts {
         ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
 
         //when
-        Ticket ticket = parkingBoy.park((Car) null);
+        String ticketId = parkingBoy.park((Car) null);
 
         //then
-        assertNull(ticket);
+        assertEquals("",ticketId);
     }
 
 }

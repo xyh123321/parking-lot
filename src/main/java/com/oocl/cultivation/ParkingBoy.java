@@ -14,12 +14,12 @@ public class ParkingBoy {
         this.parkingLot = parkingLot;
     }
 
-    public Ticket park(Car car){
+    public String park(Car car){
         if(car!=null && this.parkingLot.addCar(car)){
             Ticket ticket = new Ticket(car.getCarId());
-            return ticket;
+            return ticket.getTicketId();
         }
-        return null;
+        return "";
     }
 
     public String fetchCar(Ticket ticket) {
@@ -44,7 +44,7 @@ public class ParkingBoy {
 
     public String validTicket(Ticket ticket) {
         if(ticket == null) {
-            return "";
+            return "Please provide your parking ticket.";
         }
         if(ticket.getTicketId().contains("used")){
             return "Unrecognized parking ticket.";
