@@ -312,4 +312,19 @@ class ParkingBoyFacts {
         //then
         assertEquals(true,isAdd);
     }
+
+    @Test
+    void should_return_ticket_when_specify_park_given_manager_parkingboy_car() {
+        //given
+        ParkingManager parkingManager = new ParkingManager();
+        ParkingBoy parkingBoy = new ParkingBoy();
+        parkingManager.addMember(parkingBoy);
+        Car car = new Car("car");
+
+        //when
+        String ticket = parkingManager.specifyPark(parkingBoy,car);
+
+        //then
+        assertEquals("car", ticket);
+    }
 }

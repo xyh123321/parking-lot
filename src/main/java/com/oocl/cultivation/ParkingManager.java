@@ -21,4 +21,9 @@ public class ParkingManager {
     public List<Object> getManagementList() {
         return managementList;
     }
+
+    public String specifyPark(Object obj, Car car) {
+
+        return "";
+    }
 }
