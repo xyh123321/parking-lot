@@ -299,4 +299,17 @@ class ParkingBoyFacts {
         //then
         assertEquals("Not enough position.",ticketId);
     }
+
+    @Test
+    void should_return_list_size_when_add_parkingboy_given_manager_parkingboy() {
+        //given
+        ParkingManager parkingManager = new ParkingManager();
+        ParkingBoy parkingBoy = new ParkingBoy();
+
+        //when
+        List<Object> list = parkingManager.addMember(parkingBoy);
+
+        //then
+        assertEquals(1, list.size());
+    }
 }
