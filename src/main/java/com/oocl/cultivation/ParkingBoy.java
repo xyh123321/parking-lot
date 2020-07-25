@@ -5,6 +5,7 @@ import java.util.List;
 
 public class ParkingBoy {
     private ParkingLot parkingLot;
+    private List<ParkingLot> parkingLotList;
 
     public ParkingBoy() {
         this.parkingLot = new ParkingLot();
@@ -14,13 +15,33 @@ public class ParkingBoy {
         this.parkingLot = parkingLot;
     }
 
+    public ParkingBoy(int lotNumber) {
+        this.parkingLotList = new LinkedList<>();
+        for (int num = 0; num < lotNumber; num++) {
+            ParkingLot parkingLot = new ParkingLot("lot"+num);
+            this.parkingLotList.add(parkingLot);
+        }
+    }
+
     public String park(Car car){
+        if(this.parkingLotList!=null && !this.parkingLotList.isEmpty()){
+            return searchPark(car);
+        }
         if(car!=null){
             if(this.parkingLot.addCar(car)){
                 Ticket ticket = new Ticket(car.getCarId());
                 return ticket.getTicketId();
             }
             return "Not enough position.";
+        }
+        return "";
+    }
+
+    private String searchPark(Car car) {
+        for (int i = 0; i < this.parkingLotList.size(); i++) {
+            if(this.parkingLotList.get(i).addCar(car)){
+                return "";
+            }
         }
         return "";
     }

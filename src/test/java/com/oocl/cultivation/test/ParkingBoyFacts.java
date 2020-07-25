@@ -140,4 +140,16 @@ class ParkingBoyFacts {
         assertEquals("",ticketId);
     }
 
+    @Test
+    void should_return_lot1_ticket_when_park_given_car_pakingboy_2_pakinglots_all_has_position() {
+        //given
+        Car car = new Car("jaydenCar");
+        ParkingBoy parkingBoy = new ParkingBoy(2);
+
+        //when
+        String ticket = parkingBoy.park(car);
+
+        //then
+        assertEquals("lot1:jaydenCar", ticket);
+    }
 }

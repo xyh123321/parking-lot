@@ -4,17 +4,26 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class ParkingLot {
+    private String lotName;
     private int parkingSpace;
     private List<Car> cars;
 
     public ParkingLot() {
         this.cars = new LinkedList<>();
         this.parkingSpace = 10;
+        this.lotName = "";
     }
 
     public ParkingLot(int parkingSpace) {
         this.cars = new LinkedList<>();
         this.parkingSpace = parkingSpace;
+        this.lotName = "";
+    }
+
+    public ParkingLot(String lotName) {
+        this.lotName = lotName;
+        this.cars = new LinkedList<>();
+        this.parkingSpace = 10;
     }
 
     public Car searchCar(Ticket ticket) {
