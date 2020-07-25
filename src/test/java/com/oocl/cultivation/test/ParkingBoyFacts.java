@@ -4,12 +4,14 @@ import com.oocl.cultivation.Car;
 import com.oocl.cultivation.ParkingBoy;
 import com.oocl.cultivation.ParkingLot;
 import com.oocl.cultivation.Ticket;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.LinkedList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 class ParkingBoyFacts {
 
@@ -83,6 +85,18 @@ class ParkingBoyFacts {
 
     }
 
+    @Test
+    void should_return_no_car_when_fetch_car_given_wrong_ticket_parkingboy() {
+        //given
+        ParkingBoy parkingBoy = new ParkingBoy();
 
+        Ticket wrongTicket = new Ticket("");
+
+        //when
+        Car car = parkingBoy.fetchCar(wrongTicket);
+
+        //then
+        assertNull(car,"the ticket is wrong!");
+    }
 
 }
