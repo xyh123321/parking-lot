@@ -201,8 +201,9 @@ class ParkingBoyFacts {
     void should_return_lot2_ticket_when_super_smart_parking_given_car_smart_parkingboy_and_3lots_with_diffentspace() {
         //given
         Car car = new Car("jaydenCar");
-        int[] lotSpace = {10, 20, 5};
+        int[] lotSpace = {10, 5, 12};
         SuperSmartParkingBoy superSmartParkingBoy = new SuperSmartParkingBoy(3,lotSpace);
+        superSmartParkingBoy.park(new Car("testCar"));
 
         //when
         String ticket = superSmartParkingBoy.park(car);
