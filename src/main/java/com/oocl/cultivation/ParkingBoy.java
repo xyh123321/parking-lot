@@ -22,9 +22,12 @@ public class ParkingBoy {
         return null;
     }
 
-    public Car fetchCar(Ticket ticket) {
+    public String fetchCar(Ticket ticket) {
         Car car = parkingLot.searchCar(ticket);
-        return car;
+        if(car != null){
+            return car.getCarId();
+        }
+        return "";
     }
 
     public List<Ticket> park(List<Car> cars) {

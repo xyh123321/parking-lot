@@ -39,10 +39,10 @@ class ParkingBoyFacts {
         ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
 
         //when
-        Car car = parkingBoy.fetchCar(ticket);
+        String car = parkingBoy.fetchCar(ticket);
 
         //then
-        assertEquals(car.getCarId(), ticket.getTicketId());
+        assertEquals(car, ticket.getTicketId());
     }
 
     @Test
@@ -76,12 +76,12 @@ class ParkingBoyFacts {
         ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
 
         //when
-        Car jdCar = parkingBoy.fetchCar(jaydenTicket);
-        Car suCar = parkingBoy.fetchCar(susanTicket);
+        String jdCar = parkingBoy.fetchCar(jaydenTicket);
+        String suCar = parkingBoy.fetchCar(susanTicket);
 
         //then
 
-        assertEquals(jaydenTicket.getTicketId()+susanTicket.getTicketId(), jdCar.getCarId()+suCar.getCarId());
+        assertEquals(jaydenTicket.getTicketId()+susanTicket.getTicketId(), jdCar+suCar);
 
     }
 
@@ -93,7 +93,7 @@ class ParkingBoyFacts {
         Ticket wrongTicket = new Ticket("");
 
         //when
-        Car car = parkingBoy.fetchCar(wrongTicket);
+        String car = parkingBoy.fetchCar(wrongTicket);
 
         //then
         assertNull(car,"the ticket is wrong!");
@@ -107,7 +107,7 @@ class ParkingBoyFacts {
         Ticket usedTicket = new Ticket("used:jaydenCae");
 
         //when
-        Car car = parkingBoy.fetchCar(usedTicket);
+        String car = parkingBoy.fetchCar(usedTicket);
 
         //then
         assertNull(car,"the ticket is used!");
@@ -141,4 +141,5 @@ class ParkingBoyFacts {
         //then
         assertNull(ticket);
     }
+
 }
