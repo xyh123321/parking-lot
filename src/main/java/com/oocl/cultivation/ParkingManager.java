@@ -11,6 +11,10 @@ public class ParkingManager {
     }
 
     public boolean addMember(Object obj) {
+        if(obj != null){
+            this.managementList.add(obj);
+            return true;
+        }
         return false;
     }
 
