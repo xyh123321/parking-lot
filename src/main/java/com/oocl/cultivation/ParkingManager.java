@@ -10,8 +10,11 @@ public class ParkingManager {
         this.managementList = new LinkedList<>();
     }
 
-    public List<Object> addMember(ParkingBoy parkingBoy) {
+    public boolean addMember(Object obj) {
+        return false;
+    }
 
-        return this.managementList;
+    public List<Object> getManagementList() {
+        return managementList;
     }
 }

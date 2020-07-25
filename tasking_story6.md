@@ -3,7 +3,7 @@
 
 **When:** manager add boy to list
 
-**Then:**  list.size()
+**Then:**  true
 
 ---
 
