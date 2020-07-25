@@ -127,4 +127,18 @@ class ParkingBoyFacts {
         //then
         assertNull(ticket);
     }
+
+    @Test
+    void should_return_no_ticket_when_park_given_no_car_parkingboy_parkinglot() {
+        //given
+        ParkingLot parkingLot = new ParkingLot();
+
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
+
+        //when
+        Ticket ticket = parkingBoy.park((Car) null);
+
+        //then
+        assertNull(ticket);
+    }
 }
