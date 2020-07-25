@@ -15,9 +15,12 @@ public class ParkingBoy {
     }
 
     public String park(Car car){
-        if(car!=null && this.parkingLot.addCar(car)){
-            Ticket ticket = new Ticket(car.getCarId());
-            return ticket.getTicketId();
+        if(car!=null){
+            if(this.parkingLot.addCar(car)){
+                Ticket ticket = new Ticket(car.getCarId());
+                return ticket.getTicketId();
+            }
+            return "Not enough position.";
         }
         return "";
     }

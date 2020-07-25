@@ -28,6 +28,7 @@ public class ParkingLot {
 
     public boolean addCar(Car car) {
         if(this.parkingSpace !=0){
+            this.parkingSpace--;
             this.cars.add(car);
             return true;
         }
