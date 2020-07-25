@@ -112,7 +112,7 @@ class ParkingBoyFacts {
     }
 
     @Test
-    void should_return_no_ticket_when_park_given_car_parkingboy_parkinglot() {
+    void should_return_no_ticket_when_park_given_car_parkingboy_and_no_position_parkinglot() {
         //given
         Car car = new Car("jaydenCar");
         ParkingLot parkingLot = new ParkingLot(0);
@@ -123,7 +123,7 @@ class ParkingBoyFacts {
         String ticketId = parkingBoy.park(car);
 
         //then
-        assertEquals("",ticketId);
+        assertEquals("Not enough position.",ticketId);
     }
 
     @Test
