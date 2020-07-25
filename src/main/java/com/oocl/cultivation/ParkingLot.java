@@ -12,6 +12,11 @@ public class ParkingLot {
         this.parkingSpace = 10;
     }
 
+    public ParkingLot(int parkingSpace) {
+        this.cars = new LinkedList<>();
+        this.parkingSpace = parkingSpace;
+    }
+
     public Car searchCar(Ticket ticket) {
         for (Car car : cars) {
             if(car.getCarId().equals(ticket.getTicketId())){
@@ -22,7 +27,14 @@ public class ParkingLot {
     }
 
     public boolean addCar(Car car) {
-        this.cars.add(car);
-        return true;
+        if(this.parkingSpace !=0){
+            this.cars.add(car);
+            return true;
+        }
+        return false;
+    }
+
+    public void setParkingSpace(int parkingSpace) {
+        this.parkingSpace = parkingSpace;
     }
 }

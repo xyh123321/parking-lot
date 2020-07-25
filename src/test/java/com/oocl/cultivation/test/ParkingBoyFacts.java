@@ -117,7 +117,7 @@ class ParkingBoyFacts {
     void should_return_no_ticket_when_park_given_car_parkingboy_parkinglot() {
         //given
         Car car = new Car("jaydenCar");
-        ParkingLot parkingLot = new ParkingLot();
+        ParkingLot parkingLot = new ParkingLot(0);
 
         ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
 
