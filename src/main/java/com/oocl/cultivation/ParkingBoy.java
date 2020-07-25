@@ -43,6 +43,9 @@ public class ParkingBoy {
     }
 
     public String validTicket(Ticket ticket) {
+        if(ticket == null) {
+            return "";
+        }
         if(ticket.getTicketId().contains("used")){
             return "Unrecognized parking ticket.";
         }

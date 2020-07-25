@@ -100,17 +100,15 @@ class ParkingBoyFacts {
     }
 
     @Test
-    void should_return_no_car_when_fetch_car_given_used_ticket_parkingboy() {
+    void should_return_provide_tips_when_fetch_car_given_no_ticket_parkingboy() {
         //given
         ParkingBoy parkingBoy = new ParkingBoy();
 
-        Ticket usedTicket = new Ticket("used:jaydenCae");
-
         //when
-        String car = parkingBoy.fetchCar(usedTicket);
+        String tips = parkingBoy.fetchCar(null);
 
         //then
-        assertNull(car,"the ticket is used!");
+       assertEquals("Please provide your parking ticket.", tips);
     }
 
     @Test
