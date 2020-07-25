@@ -21,7 +21,7 @@ public class SuperSmartParkingBoy extends ParkingBoy{
         int space = 0;
         int lotNum = -1;
         for (int i = 0; i < this.parkingLotList.size(); i++) {
-            if(this.parkingLotList.get(i).getParkingSpace()/this.parkingLotList.get(i).getOriginSpace()>space){
+            if(this.parkingLotList.get(i).getParkingSpace()!=0&&this.parkingLotList.get(i).getParkingSpace()/this.parkingLotList.get(i).getOriginSpace()>space){
                 space = this.parkingLotList.get(i).getParkingSpace()/this.parkingLotList.get(i).getOriginSpace();
                 lotNum = i;
             }
