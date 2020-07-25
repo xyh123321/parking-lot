@@ -44,11 +44,11 @@ public class ParkingLot {
         return false;
     }
 
-    public void setParkingSpace(int parkingSpace) {
-        this.parkingSpace = parkingSpace;
-    }
-
     public String getLotName() {
         return lotName;
+    }
+
+    public int getParkingSpace() {
+        return parkingSpace;
     }
 }
