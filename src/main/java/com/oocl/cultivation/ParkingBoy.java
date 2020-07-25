@@ -43,7 +43,7 @@ public class ParkingBoy {
                 return this.parkingLotList.get(i).getLotName()+":"+car.getCarId();
             }
         }
-        return "";
+        return "Not enough position.";
     }
 
     public String fetchCar(Ticket ticket) {
