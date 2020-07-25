@@ -86,17 +86,17 @@ class ParkingBoyFacts {
     }
 
     @Test
-    void should_return_no_car_when_fetch_car_given_wrong_ticket_parkingboy() {
+    void should_return_unrecognized_tips_when_fetch_car_given_wrong_ticket_parkingboy() {
         //given
         ParkingBoy parkingBoy = new ParkingBoy();
 
         Ticket wrongTicket = new Ticket("");
 
         //when
-        String car = parkingBoy.fetchCar(wrongTicket);
+        String tips = parkingBoy.fetchCar(wrongTicket);
 
         //then
-        assertNull(car,"the ticket is wrong!");
+        assertEquals("Unrecognized parking ticket.", tips);
     }
 
     @Test
