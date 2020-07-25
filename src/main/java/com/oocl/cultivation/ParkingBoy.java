@@ -17,7 +17,7 @@ public class ParkingBoy {
 
     public ParkingBoy(int lotNumber) {
         this.parkingLotList = new LinkedList<>();
-        for (int num = 0; num < lotNumber; num++) {
+        for (int num = 1; num < lotNumber+1; num++) {
             ParkingLot parkingLot = new ParkingLot("lot"+num);
             this.parkingLotList.add(parkingLot);
         }
@@ -38,9 +38,9 @@ public class ParkingBoy {
     }
 
     private String searchPark(Car car) {
-        for (int i = 1; i < this.parkingLotList.size()+1; i++) {
+        for (int i = 0; i < this.parkingLotList.size()+1; i++) {
             if(this.parkingLotList.get(i).addCar(car)){
-                return "lot"+i+":"+car.getCarId();
+                return this.parkingLotList.get(i).getLotName()+":"+car.getCarId();
             }
         }
         return "";

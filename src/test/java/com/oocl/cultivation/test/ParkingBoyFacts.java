@@ -152,4 +152,20 @@ class ParkingBoyFacts {
         //then
         assertEquals("lot1:jaydenCar", ticket);
     }
+
+    @Test
+    void should_return_lot2_ticket_when_park_given_car_pakingboy_1lot_noposition_and_2lot_hasposition() {
+        //given
+        Car car = new Car("jaydenCar");
+        ParkingBoy parkingBoy = new ParkingBoy(2);
+        for (int i = 0; i < 10; i++) {
+            parkingBoy.park(new Car(i+"car"));
+        }
+
+        //when
+        String ticket = parkingBoy.park(car);
+
+        //then
+        assertEquals("lot2:jaydenCar", ticket);
+    }
 }

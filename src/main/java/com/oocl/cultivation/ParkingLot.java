@@ -47,4 +47,8 @@ public class ParkingLot {
     public void setParkingSpace(int parkingSpace) {
         this.parkingSpace = parkingSpace;
     }
+
+    public String getLotName() {
+        return lotName;
+    }
 }
