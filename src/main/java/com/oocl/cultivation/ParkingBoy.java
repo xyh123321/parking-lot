@@ -15,7 +15,7 @@ public class ParkingBoy {
     }
 
     public Ticket park(Car car){
-        if(this.parkingLot.addCar(car)){
+        if(car!=null && this.parkingLot.addCar(car)){
             Ticket ticket = new Ticket(car.getCarId());
             return ticket;
         }
