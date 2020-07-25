@@ -90,7 +90,7 @@ class ParkingBoyFacts {
         //given
         ParkingBoy parkingBoy = new ParkingBoy();
 
-        Ticket wrongTicket = new Ticket("");
+        Ticket wrongTicket = new Ticket("used:jaydencar");
 
         //when
         String tips = parkingBoy.fetchCar(wrongTicket);

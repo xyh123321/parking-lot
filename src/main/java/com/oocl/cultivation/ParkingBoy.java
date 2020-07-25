@@ -23,11 +23,15 @@ public class ParkingBoy {
     }
 
     public String fetchCar(Ticket ticket) {
-        Car car = parkingLot.searchCar(ticket);
-        if(car != null){
+        String illegalTicket = validTicket(ticket);
+        if(illegalTicket.isEmpty()){
+            Car car = parkingLot.searchCar(ticket);
+            if(car == null){
+                return "no car.";
+            }
             return car.getCarId();
         }
-        return "";
+        return illegalTicket;
     }
 
     public List<Ticket> park(List<Car> cars) {
@@ -36,5 +40,12 @@ public class ParkingBoy {
             tickets.add(new Ticket(car.getCarId()));
         }
         return tickets;
+    }
+
+    public String validTicket(Ticket ticket) {
+        if(ticket.getTicketId().contains("used")){
+            return "Unrecognized parking ticket.";
+        }
+        return "";
     }
 }
