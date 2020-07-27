@@ -1,6 +1,6 @@
 package com.oocl.cultivation;
 
-public class SmartParkingBoy extends ParkingBoy{
+public class SmartParkingBoy extends StandardParkingBoy {
 
 
     public SmartParkingBoy(int lotNumber) {

@@ -3,19 +3,19 @@ package com.oocl.cultivation;
 import java.util.LinkedList;
 import java.util.List;
 
-public class ParkingBoy {
+public class StandardParkingBoy {
     protected ParkingLot parkingLot;
     protected List<ParkingLot> parkingLotList;
 
-    public ParkingBoy() {
+    public StandardParkingBoy() {
         this.parkingLot = new ParkingLot();
     }
 
-    public ParkingBoy(ParkingLot parkingLot) {
+    public StandardParkingBoy(ParkingLot parkingLot) {
         this.parkingLot = parkingLot;
     }
 
-    public ParkingBoy(int lotNumber) {
+    public StandardParkingBoy(int lotNumber) {
         this.parkingLotList = new LinkedList<>();
         for (int num = 1; num < lotNumber+1; num++) {
             ParkingLot parkingLot = new ParkingLot("lot"+num);

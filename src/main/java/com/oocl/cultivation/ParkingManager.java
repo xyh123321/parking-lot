@@ -22,14 +22,14 @@ public class ParkingManager {
         return managementList;
     }
 
-    public String specifyPark(ParkingBoy parkingBoy, Car car) {
-        if(!this.managementList.contains(parkingBoy)){
+    public String specifyPark(StandardParkingBoy standardParkingBoy, Car car) {
+        if(!this.managementList.contains(standardParkingBoy)){
             return "The boy is not on the management list";
         }
-        return parkingBoy.park(car);
+        return standardParkingBoy.park(car);
     }
 
-    public String specifyFetch(ParkingBoy parkingBoy, String ticket) {
+    public String specifyFetch(StandardParkingBoy standardParkingBoy, String ticket) {
         return "specifyCar";
     }
 }

@@ -1,7 +1,6 @@
 package com.oocl.cultivation.test;
 
 import com.oocl.cultivation.*;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.LinkedList;
@@ -16,10 +15,10 @@ class ParkingBoyFacts {
     void should_return_ticket_when_park_given_a_car_and_parkingboy() {
         //given
         Car car = new Car("jaydenCar");
-        ParkingBoy parkingBoy = new ParkingBoy();
+        StandardParkingBoy standardParkingBoy = new StandardParkingBoy();
 
         //when
-        String ticketId = parkingBoy.park(car);
+        String ticketId = standardParkingBoy.park(car);
 
         //then
         assertEquals(car.getCarId(), ticketId);
@@ -33,10 +32,10 @@ class ParkingBoyFacts {
         parkingLot.addCar(mockCar);
 
         Ticket ticket = new Ticket("jaydenCar");
-        ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
+        StandardParkingBoy standardParkingBoy = new StandardParkingBoy(parkingLot);
 
         //when
-        String car = parkingBoy.fetchCar(ticket);
+        String car = standardParkingBoy.fetchCar(ticket);
 
         //then
         assertEquals(car, ticket.getTicketId());
@@ -51,10 +50,10 @@ class ParkingBoyFacts {
         cars.add(jaydenCar);
         cars.add(susanCar);
 
-        ParkingBoy parkingBoy = new ParkingBoy();
+        StandardParkingBoy standardParkingBoy = new StandardParkingBoy();
 
         //when
-        List<Ticket> tickets = parkingBoy.park(cars);
+        List<Ticket> tickets = standardParkingBoy.park(cars);
 
         //then
         assertEquals(tickets.size(),2);
@@ -70,11 +69,11 @@ class ParkingBoyFacts {
         Ticket jaydenTicket = new Ticket("jaydenCar");
         Ticket susanTicket = new Ticket("susanCar");
 
-        ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
+        StandardParkingBoy standardParkingBoy = new StandardParkingBoy(parkingLot);
 
         //when
-        String jdCar = parkingBoy.fetchCar(jaydenTicket);
-        String suCar = parkingBoy.fetchCar(susanTicket);
+        String jdCar = standardParkingBoy.fetchCar(jaydenTicket);
+        String suCar = standardParkingBoy.fetchCar(susanTicket);
 
         //then
 
@@ -85,12 +84,12 @@ class ParkingBoyFacts {
     @Test
     void should_return_unrecognized_tips_when_fetch_car_given_wrong_ticket_parkingboy() {
         //given
-        ParkingBoy parkingBoy = new ParkingBoy();
+        StandardParkingBoy standardParkingBoy = new StandardParkingBoy();
 
         Ticket wrongTicket = new Ticket("used:jaydencar");
 
         //when
-        String tips = parkingBoy.fetchCar(wrongTicket);
+        String tips = standardParkingBoy.fetchCar(wrongTicket);
 
         //then
         assertEquals("Unrecognized parking ticket.", tips);
@@ -99,10 +98,10 @@ class ParkingBoyFacts {
     @Test
     void should_return_provide_tips_when_fetch_car_given_no_ticket_parkingboy() {
         //given
-        ParkingBoy parkingBoy = new ParkingBoy();
+        StandardParkingBoy standardParkingBoy = new StandardParkingBoy();
 
         //when
-        String tips = parkingBoy.fetchCar(null);
+        String tips = standardParkingBoy.fetchCar(null);
 
         //then
        assertEquals("Please provide your parking ticket.", tips);
@@ -114,10 +113,10 @@ class ParkingBoyFacts {
         Car car = new Car("jaydenCar");
         ParkingLot parkingLot = new ParkingLot(0);
 
-        ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
+        StandardParkingBoy standardParkingBoy = new StandardParkingBoy(parkingLot);
 
         //when
-        String ticketId = parkingBoy.park(car);
+        String ticketId = standardParkingBoy.park(car);
 
         //then
         assertEquals("Not enough position.",ticketId);
@@ -128,10 +127,10 @@ class ParkingBoyFacts {
         //given
         ParkingLot parkingLot = new ParkingLot();
 
-        ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
+        StandardParkingBoy standardParkingBoy = new StandardParkingBoy(parkingLot);
 
         //when
-        String ticketId = parkingBoy.park((Car) null);
+        String ticketId = standardParkingBoy.park((Car) null);
 
         //then
         assertEquals("",ticketId);
@@ -141,10 +140,10 @@ class ParkingBoyFacts {
     void should_return_lot1_ticket_when_park_given_car_pakingboy_2_pakinglots_all_has_position() {
         //given
         Car car = new Car("jaydenCar");
-        ParkingBoy parkingBoy = new ParkingBoy(2);
+        StandardParkingBoy standardParkingBoy = new StandardParkingBoy(2);
 
         //when
-        String ticket = parkingBoy.park(car);
+        String ticket = standardParkingBoy.park(car);
 
         //then
         assertEquals("lot1:jaydenCar", ticket);
@@ -154,13 +153,13 @@ class ParkingBoyFacts {
     void should_return_lot2_ticket_when_park_given_car_pakingboy_1lot_noposition_and_2lot_hasposition() {
         //given
         Car car = new Car("jaydenCar");
-        ParkingBoy parkingBoy = new ParkingBoy(2);
+        StandardParkingBoy standardParkingBoy = new StandardParkingBoy(2);
         for (int i = 0; i < 10; i++) {
-            parkingBoy.park(new Car(i+"car"));
+            standardParkingBoy.park(new Car(i+"car"));
         }
 
         //when
-        String ticket = parkingBoy.park(car);
+        String ticket = standardParkingBoy.park(car);
 
         //then
         assertEquals("lot2:jaydenCar", ticket);
@@ -170,13 +169,13 @@ class ParkingBoyFacts {
     void should_return_no_positon_when_park_given_car_pakingboy_2_lots_all_noposition() {
         //given
         Car car = new Car("jaydenCar");
-        ParkingBoy parkingBoy = new ParkingBoy(2);
+        StandardParkingBoy standardParkingBoy = new StandardParkingBoy(2);
         for (int i = 0; i < 20; i++) {
-            parkingBoy.park(new Car(i+"car"));
+            standardParkingBoy.park(new Car(i+"car"));
         }
 
         //when
-        String ticket = parkingBoy.park(car);
+        String ticket = standardParkingBoy.park(car);
 
         //then
         assertEquals("Not enough position.", ticket);
@@ -304,10 +303,10 @@ class ParkingBoyFacts {
     void should_return_true_when_add_parkingboy_given_manager_parkingboy() {
         //given
         ParkingManager parkingManager = new ParkingManager();
-        ParkingBoy parkingBoy = new ParkingBoy();
+        StandardParkingBoy standardParkingBoy = new StandardParkingBoy();
 
         //when
-        boolean isAdd = parkingManager.addMember(parkingBoy);
+        boolean isAdd = parkingManager.addMember(standardParkingBoy);
 
         //then
         assertEquals(true,isAdd);
@@ -317,12 +316,12 @@ class ParkingBoyFacts {
     void should_return_ticket_when_specify_park_given_manager_parkingboy_car() {
         //given
         ParkingManager parkingManager = new ParkingManager();
-        ParkingBoy parkingBoy = new ParkingBoy();
-        parkingManager.addMember(parkingBoy);
+        StandardParkingBoy standardParkingBoy = new StandardParkingBoy();
+        parkingManager.addMember(standardParkingBoy);
         Car car = new Car("car");
 
         //when
-        String ticket = parkingManager.specifyPark(parkingBoy,car);
+        String ticket = parkingManager.specifyPark(standardParkingBoy,car);
 
         //then
         assertEquals("car", ticket);
@@ -333,11 +332,11 @@ class ParkingBoyFacts {
         //given
         ParkingManager parkingManager = new ParkingManager();
 
-        ParkingBoy parkingBoy = new ParkingBoy();
+        StandardParkingBoy standardParkingBoy = new StandardParkingBoy();
         Car car = new Car("car");
 
         //when
-        String tips = parkingManager.specifyPark(parkingBoy,car);
+        String tips = parkingManager.specifyPark(standardParkingBoy,car);
 
         //then
         assertEquals("The boy is not on the management list", tips);
@@ -348,12 +347,12 @@ class ParkingBoyFacts {
         //given
         ParkingManager parkingManager = new ParkingManager();
 
-        ParkingBoy parkingBoy = new ParkingBoy();
-        parkingManager.addMember(parkingBoy);
-        String ticket = parkingBoy.park(new Car("specifyCar"));
+        StandardParkingBoy standardParkingBoy = new StandardParkingBoy();
+        parkingManager.addMember(standardParkingBoy);
+        String ticket = standardParkingBoy.park(new Car("specifyCar"));
 
         //when
-        String car = parkingManager.specifyFetch(parkingBoy, ticket);
+        String car = parkingManager.specifyFetch(standardParkingBoy, ticket);
 
         //then
         assertEquals("specifyCar", car);

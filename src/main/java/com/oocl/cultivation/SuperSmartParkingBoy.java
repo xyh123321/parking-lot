@@ -2,7 +2,7 @@ package com.oocl.cultivation;
 
 import java.util.LinkedList;
 
-public class SuperSmartParkingBoy extends ParkingBoy{
+public class SuperSmartParkingBoy extends StandardParkingBoy {
    private int lotNumber;
    private int[] lotSpace;
 
