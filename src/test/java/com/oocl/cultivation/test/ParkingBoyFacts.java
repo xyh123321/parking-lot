@@ -329,7 +329,7 @@ class ParkingBoyFacts {
     }
 
     @Test
-    void should_return_false_when_specify_park_given_manager_car_parkingboy_not_on_list() {
+    void should_return_tips_when_specify_park_given_manager_car_parkingboy_not_on_list() {
         //given
         ParkingManager parkingManager = new ParkingManager();
 
@@ -337,9 +337,9 @@ class ParkingBoyFacts {
         Car car = new Car("car");
 
         //when
-        String res = parkingManager.specifyPark(parkingBoy,car);
+        String tips = parkingManager.specifyPark(parkingBoy,car);
 
         //then
-        assertEquals("The boy is not on the management list", res);
+        assertEquals("The boy is not on the management list", tips);
     }
 }

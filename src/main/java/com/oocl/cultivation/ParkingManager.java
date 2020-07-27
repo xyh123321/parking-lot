@@ -23,6 +23,9 @@ public class ParkingManager {
     }
 
     public String specifyPark(ParkingBoy parkingBoy, Car car) {
+        if(!this.managementList.contains(parkingBoy)){
+            return "The boy is not on the management list";
+        }
         return parkingBoy.park(car);
     }
 }
