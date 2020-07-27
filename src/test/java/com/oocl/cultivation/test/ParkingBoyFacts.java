@@ -327,4 +327,19 @@ class ParkingBoyFacts {
         //then
         assertEquals("car", ticket);
     }
+
+    @Test
+    void should_return_false_when_specify_park_given_manager_car_parkingboy_not_on_list() {
+        //given
+        ParkingManager parkingManager = new ParkingManager();
+
+        ParkingBoy parkingBoy = new ParkingBoy();
+        Car car = new Car("car");
+
+        //when
+        String res = parkingManager.specifyPark(parkingBoy,car);
+
+        //then
+        assertEquals("The boy is not on the management list", res);
+    }
 }
