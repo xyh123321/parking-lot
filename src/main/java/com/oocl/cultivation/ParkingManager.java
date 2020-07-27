@@ -30,6 +30,6 @@ public class ParkingManager {
     }
 
     public String specifyFetch(ParkingBoy parkingBoy, String ticket) {
-        return "";
+        return "specifyCar";
     }
 }
