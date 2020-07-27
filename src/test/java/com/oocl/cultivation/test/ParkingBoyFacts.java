@@ -7,7 +7,6 @@ import java.util.LinkedList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.assertNull;
 
 class ParkingBoyFacts {
 
@@ -35,10 +34,10 @@ class ParkingBoyFacts {
         StandardParkingBoy standardParkingBoy = new StandardParkingBoy(parkingLot);
 
         //when
-        String car = standardParkingBoy.fetchCar(ticket);
+        Car car = standardParkingBoy.fetchCar(ticket);
 
         //then
-        assertEquals(car, ticket.getTicketId());
+        assertEquals(car.getCarId(), ticket.getTicketId());
     }
 
     @Test
@@ -72,12 +71,12 @@ class ParkingBoyFacts {
         StandardParkingBoy standardParkingBoy = new StandardParkingBoy(parkingLot);
 
         //when
-        String jdCar = standardParkingBoy.fetchCar(jaydenTicket);
-        String suCar = standardParkingBoy.fetchCar(susanTicket);
+        Car jdCar = standardParkingBoy.fetchCar(jaydenTicket);
+        Car suCar = standardParkingBoy.fetchCar(susanTicket);
 
         //then
 
-        assertEquals(jaydenTicket.getTicketId()+susanTicket.getTicketId(), jdCar+suCar);
+        assertEquals(jaydenTicket.getTicketId()+susanTicket.getTicketId(), jdCar.getCarId()+suCar.getCarId());
 
     }
 
@@ -89,7 +88,9 @@ class ParkingBoyFacts {
         Ticket wrongTicket = new Ticket("used:jaydencar");
 
         //when
-        String tips = standardParkingBoy.fetchCar(wrongTicket);
+
+        String tips = standardParkingBoy.validTicket(wrongTicket);
+
 
         //then
         assertEquals("Unrecognized parking ticket.", tips);
@@ -101,7 +102,7 @@ class ParkingBoyFacts {
         StandardParkingBoy standardParkingBoy = new StandardParkingBoy();
 
         //when
-        String tips = standardParkingBoy.fetchCar(null);
+        String tips = standardParkingBoy.validTicket(null);
 
         //then
        assertEquals("Please provide your parking ticket.", tips);
@@ -204,7 +205,7 @@ class ParkingBoyFacts {
         Ticket wrongTicket = new Ticket("used:jaydencar");
 
         //when
-        String tips = smartParkingBoy.fetchCar(wrongTicket);
+        String tips = smartParkingBoy.validTicket(wrongTicket);
 
         //then
         assertEquals("Unrecognized parking ticket.", tips);
@@ -216,7 +217,7 @@ class ParkingBoyFacts {
         SmartParkingBoy smartParkingBoy = new SmartParkingBoy(2);
 
         //when
-        String tips = smartParkingBoy.fetchCar(null);
+        String tips = smartParkingBoy.validTicket(null);
 
         //then
         assertEquals("Please provide your parking ticket.", tips);
@@ -265,7 +266,7 @@ class ParkingBoyFacts {
         Ticket wrongTicket = new Ticket("used:jaydencar");
 
         //when
-        String tips = superSmartParkingBoy.fetchCar(wrongTicket);
+        String tips = superSmartParkingBoy.validTicket(wrongTicket);
 
         //then
         assertEquals("Unrecognized parking ticket.", tips);
@@ -278,7 +279,7 @@ class ParkingBoyFacts {
         SuperSmartParkingBoy superSmartParkingBoy = new SuperSmartParkingBoy(3,lotSpace);
 
         //when
-        String tips = superSmartParkingBoy.fetchCar(null);
+        String tips = superSmartParkingBoy.validTicket(null);
 
         //then
         assertEquals("Please provide your parking ticket.", tips);
@@ -309,7 +310,7 @@ class ParkingBoyFacts {
         boolean isAdd = parkingManager.addMember(standardParkingBoy);
 
         //then
-        assertEquals(true,isAdd);
+        assertTrue(isAdd);
     }
 
     @Test

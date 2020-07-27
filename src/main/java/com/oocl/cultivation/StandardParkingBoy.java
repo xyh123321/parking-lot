@@ -46,16 +46,16 @@ public class StandardParkingBoy {
         return "Not enough position.";
     }
 
-    public String fetchCar(Ticket ticket) {
-        String illegalTicket = validTicket(ticket);
-        if(illegalTicket.isEmpty()){
+    public Car fetchCar(Ticket ticket) {
+        String isLegal = validTicket(ticket);
+        if("the ticket is legal.".equals(isLegal)){
             Car car = parkingLot.searchCar(ticket);
             if(car == null){
-                return "no car.";
+                return null;
             }
-            return car.getCarId();
+            return car;
         }
-        return illegalTicket;
+        return null;
     }
 
     public List<Ticket> park(List<Car> cars) {
@@ -73,7 +73,7 @@ public class StandardParkingBoy {
         if(ticket.getTicketId().contains("used")){
             return "Unrecognized parking ticket.";
         }
-        return "";
+        return "the ticket is legal.";
     }
 
     public List<ParkingLot> getParkingLotList() {
