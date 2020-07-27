@@ -17,10 +17,10 @@ class ParkingBoyFacts {
         StandardParkingBoy standardParkingBoy = new StandardParkingBoy();
 
         //when
-        String ticketId = standardParkingBoy.park(car);
+        Ticket ticket = standardParkingBoy.park(car);
 
         //then
-        assertEquals(car.getCarId(), ticketId);
+        assertEquals(car.getCarId(), ticket.getTicketId());
     }
 
     @Test
@@ -109,18 +109,16 @@ class ParkingBoyFacts {
     }
 
     @Test
-    void should_return_no_ticket_when_park_given_car_parkingboy_and_no_position_parkinglot() {
+    void should_return_not_enough_position_when_park_given_car_and_no_position_parkinglot() {
         //given
         Car car = new Car("jaydenCar");
         ParkingLot parkingLot = new ParkingLot(0);
 
-        StandardParkingBoy standardParkingBoy = new StandardParkingBoy(parkingLot);
-
         //when
-        String ticketId = standardParkingBoy.park(car);
+        String tips = parkingLot.isFullOfLotSpace();
 
         //then
-        assertEquals("Not enough position.",ticketId);
+        assertEquals("Not enough position.",tips);
     }
 
     @Test
@@ -131,10 +129,10 @@ class ParkingBoyFacts {
         StandardParkingBoy standardParkingBoy = new StandardParkingBoy(parkingLot);
 
         //when
-        String ticketId = standardParkingBoy.park((Car) null);
+        Ticket ticket = standardParkingBoy.park((Car) null);
 
         //then
-        assertEquals("",ticketId);
+        assertNull(ticket);
     }
 
     @Test
@@ -144,10 +142,10 @@ class ParkingBoyFacts {
         StandardParkingBoy standardParkingBoy = new StandardParkingBoy(2);
 
         //when
-        String ticket = standardParkingBoy.park(car);
+        Ticket ticket = standardParkingBoy.park(car);
 
         //then
-        assertEquals("lot1:jaydenCar", ticket);
+        assertEquals("lot1:jaydenCar", ticket.getTicketId());
     }
 
     @Test
@@ -160,10 +158,10 @@ class ParkingBoyFacts {
         }
 
         //when
-        String ticket = standardParkingBoy.park(car);
+        Ticket ticket = standardParkingBoy.park(car);
 
         //then
-        assertEquals("lot2:jaydenCar", ticket);
+        assertEquals("lot2:jaydenCar", ticket.getTicketId());
     }
 
     @Test
@@ -176,10 +174,10 @@ class ParkingBoyFacts {
         }
 
         //when
-        String ticket = standardParkingBoy.park(car);
+        String tips = standardParkingBoy.getParkingLotList().get(standardParkingBoy.getParkingLotList().size()-1).isFullOfLotSpace();
 
         //then
-        assertEquals("Not enough position.", ticket);
+        assertEquals("Not enough position.", tips);
     }
 
     @Test
@@ -191,10 +189,10 @@ class ParkingBoyFacts {
         smartParkingBoy.park(new Car("car"));
 
         //when
-        String ticket = smartParkingBoy.park(car);
+        Ticket ticket = smartParkingBoy.park(car);
 
         //then
-        assertEquals("lot2:jaydenCar", ticket);
+        assertEquals("lot2:jaydenCar", ticket.getTicketId());
     }
 
     @Test
@@ -236,10 +234,10 @@ class ParkingBoyFacts {
         }
 
         //when
-        String ticketId = smartParkingBoy.park(car);
+        String tips = parkingLotList.get(parkingLotList.size()-1).isFullOfLotSpace();
 
         //then
-        assertEquals("Not enough position.",ticketId);
+        assertEquals("Not enough position.",tips);
     }
 
     @Test
@@ -251,10 +249,10 @@ class ParkingBoyFacts {
         superSmartParkingBoy.park(new Car("testCar"));
 
         //when
-        String ticket = superSmartParkingBoy.park(car);
+        Ticket ticket = superSmartParkingBoy.park(car);
 
         //then
-        assertEquals("lot2:jaydenCar", ticket);
+        assertEquals("lot2:jaydenCar", ticket.getTicketId());
     }
 
     @Test
@@ -294,10 +292,10 @@ class ParkingBoyFacts {
         SuperSmartParkingBoy superSmartParkingBoy = new SuperSmartParkingBoy(3,lotSpace);
 
         //when
-        String ticketId = superSmartParkingBoy.park(car);
-
+        Ticket ticket = superSmartParkingBoy.park(car);
+        String tips = ticket == null ? "Not enough position." : "enough position";
         //then
-        assertEquals("Not enough position.",ticketId);
+        assertEquals("Not enough position.",tips);
     }
 
     @Test
@@ -322,10 +320,10 @@ class ParkingBoyFacts {
         Car car = new Car("car");
 
         //when
-        String ticket = parkingManager.specifyPark(standardParkingBoy,car);
+        Ticket ticket = parkingManager.specifyPark(standardParkingBoy,car);
 
         //then
-        assertEquals("car", ticket);
+        assertEquals("car", ticket.getTicketId());
     }
 
     @Test
@@ -337,10 +335,10 @@ class ParkingBoyFacts {
         Car car = new Car("car");
 
         //when
-        String tips = parkingManager.specifyPark(standardParkingBoy,car);
+        Ticket ticket = parkingManager.specifyPark(standardParkingBoy,car);
 
         //then
-        assertEquals("The boy is not on the management list", tips);
+        assertNull(ticket);
     }
 
     @Test
@@ -350,12 +348,12 @@ class ParkingBoyFacts {
 
         StandardParkingBoy standardParkingBoy = new StandardParkingBoy();
         parkingManager.addMember(standardParkingBoy);
-        String ticket = standardParkingBoy.park(new Car("specifyCar"));
+        Ticket ticket = standardParkingBoy.park(new Car("specifyCar"));
 
         //when
-        String car = parkingManager.specifyFetch(standardParkingBoy, ticket);
+        Car car = parkingManager.specifyFetch(standardParkingBoy, ticket);
 
         //then
-        assertEquals("specifyCar", car);
+        assertEquals("specifyCar", car.getCarId());
     }
 }

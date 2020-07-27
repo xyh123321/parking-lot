@@ -37,12 +37,19 @@ public class ParkingLot {
     }
 
     public boolean addCar(Car car) {
-        if(this.parkingSpace !=0){
+        if("enough position".equals(isFullOfLotSpace())){
             this.setParkingSpace(this.parkingSpace-1);
             this.cars.add(car);
             return true;
         }
         return false;
+    }
+
+    public String isFullOfLotSpace() {
+        if(this.parkingSpace>0) {
+            return "enough position";
+        }
+        return "Not enough position.";
     }
 
     public String getLotName() {

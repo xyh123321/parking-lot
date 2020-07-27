@@ -17,7 +17,7 @@ public class SuperSmartParkingBoy extends StandardParkingBoy {
     }
 
     @Override
-    protected String searchPark(Car car) {
+    protected Ticket searchPark(Car car) {
         int space = 0;
         int lotNum = -1;
         for (int i = 0; i < this.parkingLotList.size(); i++) {
@@ -28,9 +28,9 @@ public class SuperSmartParkingBoy extends StandardParkingBoy {
         }
         if(lotNum !=-1){
             if(this.parkingLotList.get(lotNum).addCar(car)){
-                return  this.parkingLotList.get(lotNum).getLotName()+":"+car.getCarId();
+                return  new Ticket(this.parkingLotList.get(lotNum).getLotName()+":"+car.getCarId());
             }
         }
-        return "Not enough position.";
+        return null;
     }
 }

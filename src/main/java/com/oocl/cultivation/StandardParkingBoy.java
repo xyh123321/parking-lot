@@ -23,27 +23,28 @@ public class StandardParkingBoy {
         }
     }
 
-    public String park(Car car){
+    public Ticket park(Car car){
         if(this.parkingLotList!=null && !this.parkingLotList.isEmpty()){
             return searchPark(car);
         }
         if(car!=null){
             if(this.parkingLot.addCar(car)){
                 Ticket ticket = new Ticket(car.getCarId());
-                return ticket.getTicketId();
+                return ticket;
             }
-            return "Not enough position.";
         }
-        return "";
+        return null;
     }
 
-    protected String searchPark(Car car) {
+    protected Ticket searchPark(Car car) {
         for (int i = 0; i < this.parkingLotList.size(); i++) {
             if(this.parkingLotList.get(i).addCar(car)){
-                return this.parkingLotList.get(i).getLotName()+":"+car.getCarId();
+                String ticketStr = this.parkingLotList.get(i).getLotName()+":"+car.getCarId();
+                Ticket ticket = new Ticket(ticketStr);
+                return ticket;
             }
         }
-        return "Not enough position.";
+        return null;
     }
 
     public Car fetchCar(Ticket ticket) {
