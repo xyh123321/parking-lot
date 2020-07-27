@@ -23,7 +23,7 @@
 
 ---
 
-**3 Given:**  parking boy, parking manager,car
+**3 Given:**  parking boy, parking manager,ticket
 
 **When:** manager specify  boy to fetch car
 

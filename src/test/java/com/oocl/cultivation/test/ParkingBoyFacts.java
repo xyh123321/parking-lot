@@ -342,4 +342,20 @@ class ParkingBoyFacts {
         //then
         assertEquals("The boy is not on the management list", tips);
     }
+
+    @Test
+    void should_return_car_when_specify_fetch_given_manager_parkingboy_ticket() {
+        //given
+        ParkingManager parkingManager = new ParkingManager();
+
+        ParkingBoy parkingBoy = new ParkingBoy();
+        parkingManager.addMember(parkingBoy);
+        String ticket = parkingBoy.park(new Car("specifyCar"));
+
+        //when
+        String car = parkingManager.specifyFetch(parkingBoy, ticket);
+
+        //then
+        assertEquals("specifyCar", car);
+    }
 }

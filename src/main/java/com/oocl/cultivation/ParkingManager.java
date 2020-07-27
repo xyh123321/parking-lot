@@ -28,4 +28,8 @@ public class ParkingManager {
         }
         return parkingBoy.park(car);
     }
+
+    public String specifyFetch(ParkingBoy parkingBoy, String ticket) {
+        return "";
+    }
 }
